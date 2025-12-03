@@ -133,7 +133,7 @@ export default function FeatureSection() {
     <section className="relative w-full overflow-hidden py-20 md:py-28 z-0">
       <div className="mx-auto px-16 z-10">
         <ScrollHeading />
-        <div className="relative mt-12 md:mt-16 min-h-[720px] md:min-h-[900px] ">
+        <div className="relative mt-12 md:mt-16 ">
           <svg
             viewBox="0 0 300 300"
             className="absolute -right-6 md:right-6 -top-10 md:-top-6 w-48 md:w-64 h-auto text-gray-400 "
@@ -148,7 +148,7 @@ export default function FeatureSection() {
 
           <EllipseMaskedBackground
             imageUrl="/ingredients-clip.jpg"
-            height="100vh"
+            height="130vh"
             className="w-full mt-20"
             zoomPercent={60}
           />
