@@ -92,7 +92,7 @@ export default function ProductSection() {
   }
 
   return (
-    <section ref={sectionRef} className="relative w-full bg-white">
+    <section ref={sectionRef} className="relative w-full bg-white z-0">
       <style>{scrollbarHideStyle}</style>
       {/* Header */}
       <div className="mb-12 pt-20 text-center md:mb-16 px-16">
