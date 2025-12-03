@@ -150,7 +150,7 @@ export default function ProductSection() {
           <div className="relative w-full mb-8 overflow-y-hidden">
             <div
               ref={carouselRef}
-              className="flex gap-4 overflow-x-auto overflow-y-hidden md:overflow-x-auto scroll-smooth carousel-hide-scroll snap-x snap-mandatory select-none cursor-grab active:cursor-grabbing"
+              className="flex gap-2 overflow-x-auto overflow-y-hidden md:overflow-x-auto scroll-smooth carousel-hide-scroll snap-x snap-mandatory select-none cursor-grab active:cursor-grabbing"
               onPointerDown={onPointerDown}
               onPointerMove={onPointerMove}
               onPointerUp={onPointerUp}
