@@ -97,7 +97,7 @@ export default function FeatureSection() {
         "Truly clean with only verified ingredients; and free from over 1800 questionable ingredients. Because what you put on your skin matters.",
       icon: "/globe.svg",
       className:
-        "relative mx-auto mt-6 w-full max-w-[320px] bg-[#f5f5f5] rounded-xl  px-8 py-8 z-20 md:absolute md:left-[4%] md:top-[38%] md:h-[450px]",
+        "relative mx-auto mt-6 w-full max-w-[350px] bg-[#f5f5f5] rounded-lg  px-8 py-8 z-20 md:absolute md:left-[2%] md:top-[38%] md:h-[450px]",
       speed: 3,
     },
     {
@@ -106,7 +106,7 @@ export default function FeatureSection() {
         "No black boxes, nothing to hide, we disclose our full formulas, so you will never have to guess what's in it and how much.",
       icon: "/file.svg",
       className:
-        "relative mx-auto mt-6 w-full max-w-[320px] bg-[#f5f5f5] rounded-xl  px-8 py-8 z-20 md:absolute md:left-[23%] md:top-[6%] md:h-[450px]",
+        "relative mx-auto mt-6 w-full max-w-[350px] bg-[#f5f5f5] rounded-lg  px-8 py-8 z-20 md:absolute md:left-[23%] md:top-[6%] md:h-[450px]",
       speed: 1,
     },
     {
@@ -115,7 +115,7 @@ export default function FeatureSection() {
         "Our formulas are chock-a-block with actives, anti oxidants, skin restoring agents backed by dermal science that aim to deliver real results.",
       icon: "/window.svg",
       className:
-        "relative mx-auto mt-6 w-full max-w-[320px] bg-[#f5f5f5] rounded-xl shadow-md px-8 py-8 z-20 md:absolute md:left-[62%] md:bottom-[-20%] md:h-[450px]",
+        "relative mx-auto mt-6 w-full max-w-[350px] bg-[#f5f5f5] rounded-lg px-8 py-8 z-20 md:absolute md:left-[58%] md:bottom-[-20%] md:h-[450px]",
       speed: 3,
     },
     {
@@ -124,7 +124,7 @@ export default function FeatureSection() {
         "Peta Certified Vegan and Cruelty Free. Our products are always housed in responsible packaging and made sustainably.",
       icon: "/globe.svg",
       className:
-        "relative mx-auto mt-6 w-full max-w-[320px] bg-[#f5f5f5] rounded-xl shadow-md px-8 py-8 z-20 md:absolute md:right-[1%] md:top-[50%] md:h-[450px]",
+        "relative mx-auto mt-6 w-full max-w-[350px] bg-[#f5f5f5] rounded-lg  px-8 py-8 z-20 md:absolute md:right-[1%] md:top-[50%] md:h-[450px]",
       speed: 2,
     },
   ];
@@ -161,7 +161,7 @@ export default function FeatureSection() {
               className={c.className}
             >
               <div className="flex h-full flex-col items-center justify-evenly text-center">
-                <div className="w-20 h-20 md:w-24 md:h-24 rounded-full bg-white/90 flex items-center justify-center shadow-sm">
+                <div className="w-20 h-20 md:w-30 md:h-30 rounded-full bg-white/90 flex items-center justify-center shadow-sm">
                   <Image
                     src={c.icon || "/placeholder.svg"}
                     alt="icon"
