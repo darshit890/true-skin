@@ -44,7 +44,7 @@ export function Footer() {
       </div>
 
       <div className="relative">
-        <div ref={overlayRef} className="absolute top-0 right-0 transform -translate-y-1/2 w-full md:w-1/2 px-4 md:px-8 lg:px-16 z-20">
+        <div ref={overlayRef} className="w-full md:w-1/2 px-4 md:px-8 lg:px-16 z-20 md:absolute md:top-0 md:right-0 md:transform md:-translate-y-1/2">
           <div
             className={`p-8 md:p-28 bg-gray-900 rounded-2xl text-center transition-all duration-700 ${
               visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"

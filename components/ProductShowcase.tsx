@@ -50,7 +50,7 @@ export function ProductShowcase() {
         }
       `}</style>
       {/* Two-column layout: left content, right image */}
-      <div className="grid grid-cols-2 min-h-screen">
+      <div className="grid grid-cols-1 lg:grid-cols-2 min-h-screen">
         {/* Left Section - Product Details */}
         <div className={`flex flex-col justify-between p-8 lg:p-16 transition-all duration-700 ${isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-3'}`}>
           {/* Top decorative line */}
@@ -126,7 +126,7 @@ export function ProductShowcase() {
         </div>
 
         {/* Right Section - Full Image */}
-        <div className="relative w-full h-screen overflow-hidden">
+        <div className="relative w-full h-[65vh] sm:h-[75vh] lg:h-screen overflow-hidden">
           <div className="absolute inset-0 transition-transform duration-75 ease-out" style={{ transform: `translateY(-${scrollY * 0.4}px)` }}>
             <Image src="/offer.jpg" alt="Exciting offers" fill className="object-cover" priority />
           </div>

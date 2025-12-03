@@ -1,5 +1,4 @@
 "use client"
-
 import { useEffect, useRef, useState } from "react"
 import Image from "next/image"
 
@@ -14,7 +13,6 @@ export function ParallaxBeautySection() {
         const rect = sectionRef.current.getBoundingClientRect()
         const elementTop = rect.top
         const elementBottom = rect.bottom
-
         if (elementBottom > 0 && elementTop < window.innerHeight) {
           setIsInView(true)
           const scrollProgress = (window.innerHeight - elementTop) / (window.innerHeight + rect.height)
@@ -22,22 +20,20 @@ export function ParallaxBeautySection() {
         }
       }
     }
-
     window.addEventListener("scroll", handleScroll)
     handleScroll()
-
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
   return (
     <section ref={sectionRef} className="relative w-full bg-[#F5F5F5] overflow-hidden">
-      <div className="relative w-full min-h-screen px-8 md:px-16 pt-20 md:pt-32">
+      <div className="relative w-full min-h-screen px-4 sm:px-6 md:px-8 lg:px-16 pt-16 sm:pt-20 md:pt-32">
         {/* LEFT COLUMN - Philosophy Button */}
-        <div className="absolute left-8 md:left-16 top-32 z-10">
-          <button className="flex items-center gap-3 group hover:opacity-75 transition-opacity">
-            <div className="w-12 h-12 bg-stone-900 rounded-full flex items-center justify-center shrink-0">
+        <div className="absolute left-4 sm:left-6 md:left-8 lg:left-16 top-24 sm:top-28 md:top-32 z-10">
+          <button className="flex items-center gap-2 sm:gap-3 group hover:opacity-75 transition-opacity">
+            <div className="w-10 h-10 sm:w-12 sm:h-12 bg-stone-900 rounded-full flex items-center justify-center shrink-0">
               <svg
-                className="w-5 h-5 text-white"
+                className="w-4 h-4 sm:w-5 sm:h-5 text-white"
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
@@ -57,8 +53,8 @@ export function ParallaxBeautySection() {
         {/* MAIN CONTENT */}
         <div className="relative min-h-[90vh] flex flex-col items-center justify-center">
           {/* Centered Main Headline - Fixed position */}
-          <div className="relative z-0 text-center mb-32">
-            <h1 className="text-6xl md:text-7xl lg:text-8xl xl:text-[10rem] font-bold text-stone-900 tracking-tighter leading-[0.85]">
+          <div className="relative z-0 text-center mb-12 sm:mb-20 md:mb-32">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl font-bold text-stone-900 tracking-tighter leading-[0.85]">
               <span
                 className={`block transition-all duration-700 ${
                   isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
@@ -91,18 +87,20 @@ export function ParallaxBeautySection() {
           </div>
 
           {/* Bottom Section - Image and Features */}
-          <div className="relative w-full grid grid-cols-12 gap-8 items-start max-w-7xl mx-auto mt-8">
+          <div className="relative w-full grid grid-cols-12 gap-4 sm:gap-6 md:gap-8 items-start max-w-7xl mx-auto">
             {/* LEFT - Product Image with Parallax */}
-            <div className="col-span-12 lg:col-span-6 relative flex justify-center lg:justify-start min-h-[500px]">
+            <div className="col-span-12 lg:col-span-6 relative flex justify-center lg:justify-start min-h-[300px] sm:min-h-[400px] md:min-h-[500px]">
               <div
                 className="relative transition-transform duration-75 ease-out"
                 style={{
-                  transform: isInView ? `translateY(-${scrollY * 0.8}px)` : "translateY(-100px)",
+                  transform: isInView ? `translateY(-${scrollY * 0.5}px)` : "translateY(-50px)",
                 }}
               >
                 <div
-                  className={`relative w-[400px] h-[600px] lg:w-[500px] top-[-50%] transform transition-all duration-700 ${
-                    isInView ? "opacity-100 translate-x-0 scale-100 rotate-0" : "opacity-0 translate-x-6 scale-95 rotate-2"
+                  className={`relative w-[100px] h-[130px] sm:w-[300px] sm:h-[450px] md:w-[400px] md:h-[600px] lg:w-[450px] lg:h-[675px] xl:w-[500px] xl:h-[750px] top-[-50%] transform transition-all duration-700 ${
+                    isInView
+                      ? "opacity-100 translate-x-0 scale-100 rotate-0"
+                      : "opacity-0 translate-x-6 scale-95 rotate-2"
                   }`}
                 >
                   <Image
@@ -120,18 +118,18 @@ export function ParallaxBeautySection() {
             {/* Spacer */}
             <div className="hidden lg:block lg:col-span-2"></div>
 
-            {/* RIGHT - Features at extreme right */}
+            {/* RIGHT - Features */}
             <div className="col-span-12 lg:col-span-4 flex flex-col justify-start">
-              <div className="space-y-12">
+              <div className="space-y-8 md:space-y-12">
                 {/* Feature 1 */}
                 <div
-                  className={`flex gap-6 transition-all duration-700 ${
+                  className={`flex gap-4 md:gap-6 transition-all duration-700 ${
                     isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
                   }`}
                   style={{ transitionDelay: "400ms" }}
                 >
                   <svg
-                    className="w-8 h-8 text-stone-900 shrink-0 mt-1"
+                    className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 text-stone-900 shrink-0 mt-1"
                     viewBox="0 0 24 24"
                     fill="none"
                     stroke="currentColor"
@@ -141,24 +139,27 @@ export function ParallaxBeautySection() {
                     <circle cx="12" cy="12" r="2" fill="currentColor" />
                   </svg>
                   <div>
-                    <h3 className="text-sm font-bold text-stone-900 mb-3 tracking-wide">
-                      100% Transparent<br />Formulas
+                    <h3 className="text-xs sm:text-sm font-bold text-stone-900 mb-2 md:mb-3 tracking-wide">
+                      100% Transparent
+                      <br />
+                      Formulas
                     </h3>
-                    <p className="text-sm text-stone-500 leading-relaxed">
-                      We formulate to the highest standards of efficacy and safety – using only proven, verified ingredients in bio-compatible bases; and free from over 1800 questionable ingredients
+                    <p className="text-xs sm:text-sm text-stone-500 leading-relaxed">
+                      We formulate to the highest standards of efficacy and safety – using only proven, verified
+                      ingredients in bio-compatible bases; and free from over 1800 questionable ingredients
                     </p>
                   </div>
                 </div>
 
                 {/* Feature 2 */}
                 <div
-                  className={`flex gap-6 transition-all duration-700 ${
+                  className={`flex gap-4 md:gap-6 transition-all duration-700 ${
                     isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
                   }`}
                   style={{ transitionDelay: "550ms" }}
                 >
                   <svg
-                    className="w-8 h-8 text-stone-900 shrink-0 mt-1"
+                    className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 text-stone-900 shrink-0 mt-1"
                     viewBox="0 0 24 24"
                     fill="none"
                     stroke="currentColor"
@@ -167,11 +168,14 @@ export function ParallaxBeautySection() {
                     <path d="M20 6L9 17L4 12" />
                   </svg>
                   <div>
-                    <h3 className="text-sm font-bold text-stone-900 mb-3 tracking-wide">
-                      Only Verified<br />Ingredients
+                    <h3 className="text-xs sm:text-sm font-bold text-stone-900 mb-2 md:mb-3 tracking-wide">
+                      Only Verified
+                      <br />
+                      Ingredients
                     </h3>
-                    <p className="text-sm text-stone-500 leading-relaxed">
-                      Skin care packed with anti oxidants, skin replenishing and skin restoring agents in stable pH levels that don&apos;t promise miracles, but deliver real results.
+                    <p className="text-xs sm:text-sm text-stone-500 leading-relaxed">
+                      Skin care packed with anti oxidants, skin replenishing and skin restoring agents in stable pH
+                      levels that don&apos;t promise miracles, but deliver real results.
                     </p>
                   </div>
                 </div>

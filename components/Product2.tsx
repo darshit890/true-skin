@@ -62,11 +62,13 @@ export default function VarnayaBlendsSection() {
 
   const handleScroll = (direction: "left" | "right") => {
     if (!carouselRef.current) return
-    const cardWidth = 320
+    const first = carouselRef.current.firstElementChild as HTMLElement | null
+    const cardWidth = first ? first.offsetWidth : 320
     const scrollAmount = cardWidth + 16
+    const maxScroll = cardWidth * Math.max(0, VARNAYA_PRODUCTS.length - 2)
     const newPosition =
       direction === "right"
-        ? Math.min(scrollPosition + scrollAmount, cardWidth * (VARNAYA_PRODUCTS.length - 2))
+        ? Math.min(scrollPosition + scrollAmount, maxScroll)
         : Math.max(scrollPosition - scrollAmount, 0)
     setScrollPosition(newPosition)
     carouselRef.current.scrollTo({
@@ -96,11 +98,11 @@ export default function VarnayaBlendsSection() {
           </div>
 
           <div className="relative w-full mb-8">
-            <div ref={carouselRef} className="flex gap-4 overflow-x-hidden scroll-smooth carousel-hide-scroll">
+            <div ref={carouselRef} className="flex gap-4 overflow-x-auto md:overflow-x-hidden scroll-smooth carousel-hide-scroll snap-x snap-mandatory">
               {VARNAYA_PRODUCTS.map((product, index) => (
                 <div
                   key={product.id}
-                  className={`shrink-0 w-80 rounded-3xl bg-[#D8CEC3] p-6 transition-transform hover:scale-105 relative transform duration-1000 ${
+                  className={`shrink-0 w-[85%] sm:w-64 md:w-72 lg:w-80 snap-center rounded-3xl bg-[#D8CEC3] p-6 transition-transform hover:scale-105 relative transform duration-1000 ${
                     isVisible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
                   }`}
                   style={{

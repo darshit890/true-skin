@@ -115,14 +115,15 @@ export default function FeatureSection() {
       description: "Truly clean with verified ingredients, free from over 1800 questionable substances.",
       icon: "/globe.svg",
       className:
-        "absolute left-[-25%] top-[340px] md:top-[380px] w-[320px] h-[400px] bg-[#f5f5f5] rounded-xl shadow-md px-8 py-8 z-20",
+        "relative mx-auto mt-6 w-full max-w-[320px] bg-[#f5f5f5] rounded-xl shadow-md px-8 py-8 z-20 md:absolute md:left-[-25%] md:top-[380px] md:h-[400px]",
       speed: 1.4,
     },
     {
       title: "Radical Transparency",
       description: "No black boxes, nothing to hide, we disclose our full formulas.",
       icon: "/file.svg",
-      className: "absolute left-[6%] top-10 w-[320px] h-[400px] bg-[#f5f5f5] rounded-xl shadow-md px-8 py-8 z-20",
+      className:
+        "relative mx-auto mt-6 w-full max-w-[320px] bg-[#f5f5f5] rounded-xl shadow-md px-8 py-8 z-20 md:absolute md:left-[6%] md:top-10 md:h-[400px]",
       speed: 1.1,
     },
     {
@@ -130,14 +131,15 @@ export default function FeatureSection() {
       description: "Packed with actives backed by dermal science to deliver results.",
       icon: "/window.svg",
       className:
-        "absolute right-[-20%] bottom-8 md:bottom-[-35%] w-[320px] h-[400px] bg-[#f5f5f5] rounded-xl shadow-md px-8 py-8 z-20",
+        "relative mx-auto mt-6 w-full max-w-[320px] bg-[#f5f5f5] rounded-xl shadow-md px-8 py-8 z-20 md:absolute md:right-[-20%] md:bottom-[-35%] md:h-[400px]",
       speed: 1.3,
     },
     {
       title: "Conscious & Responsible",
       description: "Certified vegan and cruelty free, housed in responsible packaging.",
       icon: "/globe.svg",
-      className: "absolute right-[10%] top-16 w-[320px] h-[400px] bg-[#f5f5f5] rounded-xl shadow-md px-8 py-8 z-20",
+      className:
+        "relative mx-auto mt-6 w-full max-w-[320px] bg-[#f5f5f5] rounded-xl shadow-md px-8 py-8 z-20 md:absolute md:right-[10%] md:top-16 md:h-[400px]",
       speed: 1.0,
     },
   ]
@@ -154,7 +156,7 @@ export default function FeatureSection() {
             <path d="M20 160c80-100 200-80 240 0" fill="none" stroke="currentColor" strokeWidth="1.5" />
           </svg>
           <div
-            className="relative left-1/2 -translate-x-1/2 top-16 md:top-8 w-[520px] md:w-[680px] h-[420px] md:h-[520px] overflow-hidden"
+            className="relative left-1/2 -translate-x-1/2 top-16 md:top-8 w-[85vw] max-w-[520px] md:max-w-[680px] aspect-[4/3] overflow-hidden"
             style={{
               borderRadius: "65% 35% 60% 40% / 55% 60% 40% 45%",
               transform: "rotate(20deg)",
