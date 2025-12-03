@@ -21,12 +21,6 @@ const PRODUCTS = [
     price: "₹899",
     image: "/p.png",
   },
-  {
-    id: 4,
-    name: "HYDRATING MOISTURIZER",
-    price: "₹899",
-    image: "/p.png",
-  },
 ]
 
 const scrollbarHideStyle = `
@@ -41,7 +35,6 @@ const scrollbarHideStyle = `
 
 export default function ProductSection() {
   const [isVisible, setIsVisible] = useState(false)
-  const [scrollPosition, setScrollPosition] = useState(0)
   const [localScroll, setLocalScroll] = useState(0)
   const carouselRef = useRef<HTMLDivElement>(null)
   const sectionRef = useRef<HTMLDivElement>(null)
@@ -74,21 +67,36 @@ export default function ProductSection() {
     return () => window.removeEventListener("scroll", onScroll)
   }, [])
 
-  const handleScroll = (direction: "left" | "right") => {
-    if (!carouselRef.current) return
-    const first = carouselRef.current.firstElementChild as HTMLElement | null
-    const cardWidth = first ? first.offsetWidth : 320
-    const scrollAmount = cardWidth + 16
-    const maxScroll = cardWidth * Math.max(0, PRODUCTS.length - 2)
-    const newPosition =
-      direction === "right"
-        ? Math.min(scrollPosition + scrollAmount, maxScroll)
-        : Math.max(scrollPosition - scrollAmount, 0)
-    setScrollPosition(newPosition)
-    carouselRef.current.scrollTo({
-      left: newPosition,
-      behavior: "smooth",
-    })
+  const isDragging = useRef(false)
+  const startX = useRef(0)
+  const scrollStart = useRef(0)
+
+  const onPointerDown = (e: React.PointerEvent<HTMLDivElement>) => {
+    const el = carouselRef.current
+    if (!el) return
+    isDragging.current = true
+    startX.current = e.clientX
+    scrollStart.current = el.scrollLeft
+    el.setPointerCapture(e.pointerId)
+  }
+
+  const onPointerMove = (e: React.PointerEvent<HTMLDivElement>) => {
+    if (!isDragging.current) return
+    const el = carouselRef.current
+    if (!el) return
+    const delta = e.clientX - startX.current
+    el.scrollLeft = scrollStart.current - delta
+  }
+
+  const onPointerUp = (e: React.PointerEvent<HTMLDivElement>) => {
+    isDragging.current = false
+    try {
+      carouselRef.current?.releasePointerCapture(e.pointerId)
+    } catch {}
+  }
+
+  const onPointerLeave = () => {
+    isDragging.current = false
   }
 
   return (
@@ -101,7 +109,7 @@ export default function ProductSection() {
             isVisible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
           }`}
         >
-          <h2 className="text-sm font-semibold tracking-widest text-gray-700 md:text-base">EXPLORE</h2>
+          <h2 className="text-5xl font-semibold tracking-widest text-[#454545] md:text-8xl">EXPLORE</h2>
           <p className="mt-3 text-5xl font-light italic text-gray-600 md:text-6xl">pure potency</p>
         </div>
       </div>
@@ -126,13 +134,13 @@ export default function ProductSection() {
 
         {/* Right: Products section - 50% width */}
         <div
-          className={`relative h-full w-full md:w-1/2 flex flex-col items-start justify-center px-6 md:px-8 lg:px-12 py-16 transform transition-all duration-1000 delay-300 ${
+          className={`relative h-full w-full md:w-1/2 flex flex-col items-start justify-center px-6 md:px-8 lg:px-12  transform transition-all duration-1000 delay-300 ${
             isVisible ? "translate-x-0 opacity-100" : "translate-x-20 opacity-0"
           }`}
           style={{ transform: `${isVisible ? "translateX(0)" : "translateX(20px)"} translateY(${-(localScroll * 20)}px)` }}
         >
           <div
-            className={`mb-12 transform transition-all duration-1000 delay-500 ${
+            className={`mb-12 transform transition-all duration-1000 delay-500  ${
               isVisible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
             }`}
           >
@@ -141,7 +149,14 @@ export default function ProductSection() {
           </div>
 
           <div className="relative w-full mb-8">
-            <div ref={carouselRef} className="flex gap-4 overflow-x-auto md:overflow-x-hidden scroll-smooth carousel-hide-scroll snap-x snap-mandatory">
+            <div
+              ref={carouselRef}
+              className="flex gap-4 overflow-x-auto md:overflow-x-auto scroll-smooth carousel-hide-scroll snap-x snap-mandatory select-none cursor-grab active:cursor-grabbing"
+              onPointerDown={onPointerDown}
+              onPointerMove={onPointerMove}
+              onPointerUp={onPointerUp}
+              onPointerLeave={onPointerLeave}
+            >
               {PRODUCTS.map((product, index) => (
                 <div
                   key={product.id}
@@ -152,45 +167,36 @@ export default function ProductSection() {
                     transitionDelay: isVisible ? `${700 + index * 100}ms` : "0ms",
                   }}
                 >
-                  <div className="absolute inset-0 rounded-3xl bg-white/50 flex items-center justify-center z-10">
-                    <span className="text-2xl font-semibold text-gray-800">Coming Soon</span>
-                  </div>
-
-                  <div className="flex h-full flex-col items-center justify-between gap-4">
+                  <div className="flex h-[520px] md:h-[560px] flex-col justify-between">
                     {/* Label & Bag Icon */}
                     <div className="flex w-full items-center justify-between">
-                      <span className="inline-block rounded-full bg-white px-3 py-1 text-xs font-semibold tracking-wide text-gray-700">
+                      <span className="inline-block rounded-full bg-white px-4 py-2 text-xs font-light tracking-wide text-gray-700">
                         PURE BRILLIANCE
                       </span>
-                      <div className="flex h-9 w-9 items-center justify-center rounded-full bg-white">
-                        <svg className="h-5 w-5 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"
-                          />
+                      <div className="flex h-8 w-8 items-center justify-center rounded-full bg-white">
+                        <svg className="h-4 w-4 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 11v2M8 11v4a2 2 0 002 2h4a2 2 0 002-2v-4a2 2 0 00-2-2h-1V7a4 4 0 10-8 0v2h1a2 2 0 012 2z" />
                         </svg>
                       </div>
                     </div>
 
                     {/* Product Image - larger container */}
-                    <div className="flex h-56 items-center justify-center py-4">
+                    <div className="flex h-80 md:h-96 items-center justify-center">
                       <Image
                         src={product.image || "/placeholder.svg"}
                         alt={product.name}
-                        width={200}
-                        height={224}
-                        className="h-full w-auto object-contain drop-shadow-lg rounded-2xl"
+                        width={280}
+                        height={360}
+                        className="h-full w-auto object-contain drop-shadow-lg"
                       />
                     </div>
 
                     {/* Product Info */}
-                    <div className="text-center">
-                      <p className="text-xs font-semibold tracking-wide text-gray-700 uppercase line-clamp-2">
+                    <div className="flex w-full items-end justify-between">
+                      <p className="text-sm md:text-base font-light tracking-wide text-gray-800 uppercase line-clamp-2">
                         {product.name}
                       </p>
-                      <p className="mt-2 text-lg font-semibold text-gray-800">{product.price}</p>
+                      <p className="text-sm md:text-base font-light text-gray-800">{product.price}</p>
                     </div>
                   </div>
                 </div>
@@ -198,37 +204,7 @@ export default function ProductSection() {
             </div>
           </div>
 
-          {/* Navigation */}
-          <div className="flex w-full items-center justify-end gap-4">
-            <button
-              onClick={() => handleScroll("left")}
-              className="group flex h-12 w-12 items-center justify-center rounded-full bg-gray-800 text-white transition-transform duration-300 hover:scale-110 active:scale-95"
-              aria-label="Previous products"
-            >
-              <svg
-                className="h-6 w-6 transition-transform group-hover:-translate-x-1"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-              </svg>
-            </button>
-            <button
-              onClick={() => handleScroll("right")}
-              className="group flex h-12 w-12 items-center justify-center rounded-full bg-gray-800 text-white transition-transform duration-300 hover:scale-110 active:scale-95"
-              aria-label="Next products"
-            >
-              <svg
-                className="h-6 w-6 transition-transform group-hover:translate-x-1"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-              </svg>
-            </button>
-          </div>
+          
 
           {/* Tagline */}
           <p className="mt-8 text-xs font-light tracking-widest text-gray-600 uppercase">

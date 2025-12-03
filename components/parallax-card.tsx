@@ -34,11 +34,8 @@ function ParallaxCard({
 
     const animate = () => {
       current += (target - current) * 0.12
-      const approxProgress = clamp(current / (speed * 100))
-      const opacity = Math.max(0.5, 1 - Math.abs(approxProgress - 0.5) * 0.3)
-
       el.style.transform = `translate3d(0, ${-current}px, 0)`
-      el.style.opacity = String(opacity)
+      el.style.opacity = "1"
 
       if (Math.abs(target - current) > 0.1) {
         raf = requestAnimationFrame(animate)

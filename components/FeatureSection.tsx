@@ -94,37 +94,37 @@ export default function FeatureSection() {
     {
       title: "Clean, Beyond Reproach",
       description:
-        "Truly clean with verified ingredients, free from over 1800 questionable substances.",
+        "Truly clean with only verified ingredients; and free from over 1800 questionable ingredients. Because what you put on your skin matters.",
       icon: "/globe.svg",
       className:
-        "relative mx-auto mt-6 w-full max-w-[320px] bg-[#f5f5f5] rounded-xl  px-8 py-8 z-20 md:absolute md:left-[4%] md:top-[38%] md:h-[400px]",
+        "relative mx-auto mt-6 w-full max-w-[320px] bg-[#f5f5f5] rounded-xl  px-8 py-8 z-20 md:absolute md:left-[4%] md:top-[38%] md:h-[450px]",
       speed: 3,
     },
     {
       title: "Radical Transparency",
       description:
-        "No black boxes, nothing to hide, we disclose our full formulas.",
+        "No black boxes, nothing to hide, we disclose our full formulas, so you will never have to guess what's in it and how much.",
       icon: "/file.svg",
       className:
-        "relative mx-auto mt-6 w-full max-w-[320px] bg-[#f5f5f5] rounded-xl  px-8 py-8 z-20 md:absolute md:left-[23%] md:top-[6%] md:h-[400px]",
+        "relative mx-auto mt-6 w-full max-w-[320px] bg-[#f5f5f5] rounded-xl  px-8 py-8 z-20 md:absolute md:left-[23%] md:top-[6%] md:h-[450px]",
       speed: 1,
     },
     {
       title: "Potent & Multi Tasking",
       description:
-        "Packed with actives backed by dermal science to deliver results.",
+        "Our formulas are chock-a-block with actives, anti oxidants, skin restoring agents backed by dermal science that aim to deliver real results.",
       icon: "/window.svg",
       className:
-        "relative mx-auto mt-6 w-full max-w-[320px] bg-[#f5f5f5] rounded-xl shadow-md px-8 py-8 z-20 md:absolute md:left-[62%] md:bottom-[-20%] md:h-[400px]",
+        "relative mx-auto mt-6 w-full max-w-[320px] bg-[#f5f5f5] rounded-xl shadow-md px-8 py-8 z-20 md:absolute md:left-[62%] md:bottom-[-20%] md:h-[450px]",
       speed: 3,
     },
     {
       title: "Conscious & Responsible",
       description:
-        "Certified vegan and cruelty free, housed in responsible packaging.",
+        "Peta Certified Vegan and Cruelty Free. Our products are always housed in responsible packaging and made sustainably.",
       icon: "/globe.svg",
       className:
-        "relative mx-auto mt-6 w-full max-w-[320px] bg-[#f5f5f5] rounded-xl shadow-md px-8 py-8 z-20 md:absolute md:right-[1%] md:top-[50%] md:h-[400px]",
+        "relative mx-auto mt-6 w-full max-w-[320px] bg-[#f5f5f5] rounded-xl shadow-md px-8 py-8 z-20 md:absolute md:right-[1%] md:top-[50%] md:h-[450px]",
       speed: 2,
     },
   ];
@@ -169,10 +169,10 @@ export default function FeatureSection() {
                     height={32}
                   />
                 </div>
-                <div className="text-gray-900 font-semibold text-base md:text-lg">
+                <div className="text-gray-700 font-semibold text-base md:text-xl max-w-[200px] text-center">
                   {c.title}
                 </div>
-                <div className="text-gray-600 text-sm md:text-base leading-relaxed max-w-88">
+                <div className="text-gray-600 text-sm md:text-lg leading-tight max-w-88">
                   {c.description}
                 </div>
               </div>
