@@ -149,8 +149,8 @@ export default function FeatureSection() {
           <EllipseMaskedBackground
             imageUrl="/ingredients-clip.jpg"
             height="80vh"
-            className="w-full"
-            zoomPercent={40}
+            className="w-full mt-20"
+            zoomPercent={60}
           />
 
           {cards.map((c, i) => (
