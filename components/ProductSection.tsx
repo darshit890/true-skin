@@ -100,7 +100,7 @@ export default function ProductSection() {
   }
 
   return (
-    <section ref={sectionRef} className="relative w-full bg-white z-0">
+    <section ref={sectionRef} className="relative w-full bg-white overflow-hidden z-0">
       <style>{scrollbarHideStyle}</style>
       {/* Header */}
       <div className="mb-12 pt-20 text-center md:mb-16 px-16">
@@ -114,7 +114,7 @@ export default function ProductSection() {
         </div>
       </div>
 
-      <div className="flex min-h-screen items-center justify-stretch">
+      <div className="flex min-h-screen items-center justify-stretch overflow-hidden">
         {/* Left: Full height image - 50% width */}
         <div
           className={`relative min-h-[60vh] md:min-h-screen w-full md:w-1/2 overflow-hidden transform transition-all duration-1000 ${
@@ -134,10 +134,9 @@ export default function ProductSection() {
 
         {/* Right: Products section - 50% width */}
         <div
-          className={`relative h-full w-full md:w-1/2 flex flex-col items-start justify-center px-6 md:px-8 lg:px-12  transform transition-all duration-1000 delay-300 ${
+          className={`relative h-full w-full md:w-1/2 flex flex-col items-start justify-center px-6 md:px-8 lg:px-12 overflow-hidden transform transition-all duration-1000 delay-300 ${
             isVisible ? "translate-x-0 opacity-100" : "translate-x-20 opacity-0"
           }`}
-          style={{ transform: `${isVisible ? "translateX(0)" : "translateX(20px)"} translateY(${-(localScroll * 20)}px)` }}
         >
           <div
             className={`mb-12 transform transition-all duration-1000 delay-500  ${
@@ -148,10 +147,10 @@ export default function ProductSection() {
             <p className="text-5xl font-light italic text-gray-600 md:text-6xl">Brilliance</p>
           </div>
 
-          <div className="relative w-full mb-8">
+          <div className="relative w-full mb-8 overflow-y-hidden">
             <div
               ref={carouselRef}
-              className="flex gap-4 overflow-x-auto md:overflow-x-auto scroll-smooth carousel-hide-scroll snap-x snap-mandatory select-none cursor-grab active:cursor-grabbing"
+              className="flex gap-4 overflow-x-auto overflow-y-hidden md:overflow-x-auto scroll-smooth carousel-hide-scroll snap-x snap-mandatory select-none cursor-grab active:cursor-grabbing"
               onPointerDown={onPointerDown}
               onPointerMove={onPointerMove}
               onPointerUp={onPointerUp}

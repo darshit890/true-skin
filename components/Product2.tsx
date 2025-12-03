@@ -92,13 +92,13 @@ export default function VarnayaBlendsSection() {
   }
 
   return (
-    <section ref={sectionRef} className="relative w-full bg-white">
+    <section ref={sectionRef} className="relative w-full bg-white overflow-hidden">
       <style>{scrollbarHideStyle}</style>
 
-      <div className="flex min-h-screen items-center justify-stretch">
+      <div className="flex min-h-screen items-center justify-stretch overflow-hidden">
         {/* Left: Products section - 50% width */}
         <div
-          className={`relative h-full w-full md:w-1/2 flex flex-col items-start justify-center px-6 md:px-8 lg:px-16 transform transition-all duration-1000 delay-300 ${
+          className={`relative h-full w-full md:w-1/2 flex flex-col items-start justify-center px-6 md:px-8 lg:px-16 overflow-hidden transform transition-all duration-1000 delay-300 ${
             isVisible ? "translate-x-0 opacity-100" : "-translate-x-20 opacity-0"
           }`}
         >
@@ -111,10 +111,10 @@ export default function VarnayaBlendsSection() {
             <p className="text-5xl font-light italic text-gray-600 md:text-6xl">Blends</p>
           </div>
 
-          <div className="relative w-full mb-8">
+          <div className="relative w-full mb-8 overflow-y-hidden">
             <div
               ref={carouselRef}
-              className="flex gap-4 overflow-x-auto md:overflow-x-auto scroll-smooth carousel-hide-scroll snap-x snap-mandatory select-none cursor-grab active:cursor-grabbing"
+              className="flex gap-4 overflow-x-auto overflow-y-hidden md:overflow-x-auto scroll-smooth carousel-hide-scroll snap-x snap-mandatory select-none cursor-grab active:cursor-grabbing"
               onPointerDown={onPointerDown}
               onPointerMove={onPointerMove}
               onPointerUp={onPointerUp}
