@@ -7,7 +7,7 @@ interface EllipseMaskedBackgroundProps {
 
 const ellipseSvg = `
 <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-  <ellipse cx="100" cy="100" rx="120" ry="40" fill="black" transform="rotate(45 100 100)" />
+  <ellipse cx="100" cy="100" rx="120" ry="58" fill="black" transform="rotate(45 100 100)" />
 </svg>
 `
 
