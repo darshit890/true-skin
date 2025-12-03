@@ -148,7 +148,7 @@ export default function FeatureSection() {
 
           <EllipseMaskedBackground
             imageUrl="/ingredients-clip.jpg"
-            height="80vh"
+            height="100vh"
             className="w-full mt-20"
             zoomPercent={60}
           />
