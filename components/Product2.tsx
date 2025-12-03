@@ -84,7 +84,7 @@ export default function VarnayaBlendsSection() {
       <div className="flex min-h-screen items-center justify-stretch">
         {/* Left: Products section - 50% width */}
         <div
-          className={`relative h-full w-full md:w-1/2 flex flex-col items-start justify-center px-6 md:px-8 lg:px-12 py-16 transform transition-all duration-1000 delay-300 ${
+          className={`relative h-full w-full md:w-1/2 flex flex-col items-start justify-center px-6 md:px-8 lg:px-16 py-16 transform transition-all duration-1000 delay-300 ${
             isVisible ? "translate-x-0 opacity-100" : "-translate-x-20 opacity-0"
           }`}
         >

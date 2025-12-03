@@ -1,8 +1,8 @@
 "use client";
-
-import type React from "react";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
+import { EllipseMaskedBackground } from "./ellipse";
+import ParallaxCard from "./parallax-card"; // Import ParallaxCard component
 
 type Card = {
   title: string;
@@ -11,74 +11,6 @@ type Card = {
   className: string;
   speed: number;
 };
-
-function ParallaxCard({
-  children,
-  speed,
-  index,
-  className,
-}: {
-  children: React.ReactNode;
-  speed: number;
-  index: number;
-  className?: string;
-}) {
-  const ref = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-
-    let raf = 0;
-    let current = 0;
-    let target = 0;
-
-    const clamp = (v: number, min = 0, max = 1) => Math.min(max, Math.max(min, v));
-
-    const computeTarget = () => {
-      const rect = el.getBoundingClientRect();
-      const progress = clamp(1 - rect.top / window.innerHeight);
-      target = progress * speed * 100;
-    };
-
-    const animate = () => {
-      current += (target - current) * 0.12;
-      const approxProgress = clamp(current / (speed * 100));
-      const opacity = Math.max(0.5, 1 - Math.abs(approxProgress - 0.5) * 0.3);
-      el.style.transform = `translate3d(0, ${-current}px, 0)`;
-      el.style.opacity = String(opacity);
-      if (Math.abs(target - current) > 0.1) {
-        raf = requestAnimationFrame(animate);
-      }
-    };
-
-    const onScroll = () => {
-      computeTarget();
-      cancelAnimationFrame(raf);
-      raf = requestAnimationFrame(animate);
-    };
-
-    computeTarget();
-    animate();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    window.addEventListener("resize", onScroll);
-
-    return () => {
-      window.removeEventListener("scroll", onScroll);
-      window.removeEventListener("resize", onScroll);
-      cancelAnimationFrame(raf);
-    };
-  }, [speed]);
-
-  return (
-    <div
-      ref={ref}
-      className={`${className} will-change-transform`}
-    >
-      {children}
-    </div>
-  );
-}
 
 function ScrollHeading() {
   const headingRef = useRef<HTMLDivElement>(null);
@@ -141,7 +73,10 @@ function ScrollHeading() {
           <path
             className="mask-path"
             d="M62.0791 194.046C62.3807 194.003 62.5899 193.723 62.5464 193.421L61.8364 188.506C61.7928 188.204 61.513 187.995 61.2114 188.039C60.9098 188.082 60.7006 188.362 60.7441 188.664L61.3752 193.033L57.0062 193.664C56.7045 193.707 56.4954 193.987 56.5389 194.289C56.5825 194.59 56.8623 194.8 57.1639 194.756L62.0791 194.046ZM121.492 0.948265C56.0968 1.95061 15.1899 30.7812 3.65924 69.2165C-7.86788 107.64 10.058 155.358 61.6698 193.942L62.3306 193.058C10.9425 154.642 -6.6316 107.36 4.7163 69.5336C16.0607 31.719 56.4038 3.04963 121.509 2.05174L121.492 0.948265Z"
-            style={{ strokeDashoffset: 389.9, strokeDasharray: "380px, 227.288px" }}
+            style={{
+              strokeDashoffset: 389.9,
+              strokeDasharray: "380px, 227.288px",
+            }}
           />
         </mask>
         <path
@@ -180,8 +115,8 @@ export default function FeatureSection() {
         "Packed with actives backed by dermal science to deliver results.",
       icon: "/window.svg",
       className:
-        "relative mx-auto mt-6 w-full max-w-[320px] bg-[#f5f5f5] rounded-xl  px-8 py-8 z-20 md:absolute md:left-[62%] md:bottom-[-20%] md:h-[400px]",
-      speed: 1,
+        "relative mx-auto mt-6 w-full max-w-[320px] bg-[#f5f5f5] rounded-xl shadow-md px-8 py-8 z-20 md:absolute md:left-[62%] md:bottom-[-20%] md:h-[400px]",
+      speed: 3,
     },
     {
       title: "Conscious & Responsible",
@@ -189,14 +124,14 @@ export default function FeatureSection() {
         "Certified vegan and cruelty free, housed in responsible packaging.",
       icon: "/globe.svg",
       className:
-        "relative mx-auto mt-6 w-full max-w-[320px] bg-[#f5f5f5] rounded-xl shadow-md px-8 py-8 z-20 md:absolute md:right-[2%] md:top-[50%] md:h-[400px]",
-      speed: 1,
+        "relative mx-auto mt-6 w-full max-w-[320px] bg-[#f5f5f5] rounded-xl shadow-md px-8 py-8 z-20 md:absolute md:right-[1%] md:top-[50%] md:h-[400px]",
+      speed: 2,
     },
   ];
 
   return (
     <section className="relative w-full overflow-hidden py-20 md:py-28 z-0">
-      <div className="mx-auto  px-6 md:px-10 z-10">
+      <div className="mx-auto px-16 z-10">
         <ScrollHeading />
         <div className="relative mt-12 md:mt-16 min-h-[720px] md:min-h-[900px] ">
           <svg
@@ -210,26 +145,14 @@ export default function FeatureSection() {
               strokeWidth="1.5"
             />
           </svg>
-          <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10">
-            <div
-              className="relative w-[70vw] md:w-[60vw] max-w-[900px] h-[40vh] md:h-[45vh] max-h-[520px] overflow-hidden"
-              style={{
-                borderRadius: "60% / 65%",
-                transform: "rotate(-28deg)",
-              }}
-            >
-              <Image
-                src="/ingredients-clip.jpg"
-                alt="Model"
-                fill
-                priority
-                className="object-cover"
-                style={{
-                  transform: "rotate(28deg)",
-                }}
-              />
-            </div>
-          </div>
+
+          <EllipseMaskedBackground
+            imageUrl="/ingredients-clip.jpg"
+            height="80vh"
+            className="w-full"
+            zoomPercent={40}
+          />
+
           {cards.map((c, i) => (
             <ParallaxCard
               key={i}

@@ -54,7 +54,7 @@ export function ParallaxBeautySection() {
         <div className="relative min-h-[90vh] flex flex-col items-center justify-center">
           {/* Centered Main Headline - Fixed position */}
           <div className="relative z-0 text-center mb-12 sm:mb-20 md:mb-32">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl font-bold text-stone-900 tracking-tighter leading-[0.85]">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-9xl font-bold text-stone-900 tracking-tighter leading-[0.85]">
               <span
                 className={`block transition-all duration-700 ${
                   isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
@@ -93,7 +93,7 @@ export function ParallaxBeautySection() {
               <div
                 className="relative transition-transform duration-75 ease-out"
                 style={{
-                  transform: isInView ? `translateY(-${scrollY * 0.5}px)` : "translateY(-50px)",
+                  transform: isInView ? `translateY(${scrollY * 3}px)` : "",
                 }}
               >
                 <div

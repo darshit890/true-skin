@@ -95,7 +95,7 @@ export default function ProductSection() {
     <section ref={sectionRef} className="relative w-full bg-white">
       <style>{scrollbarHideStyle}</style>
       {/* Header */}
-      <div className="mb-12 pt-20 text-center md:mb-16">
+      <div className="mb-12 pt-20 text-center md:mb-16 px-16">
         <div
           className={`transform transition-all duration-1000 ${
             isVisible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"

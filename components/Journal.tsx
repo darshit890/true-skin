@@ -34,7 +34,7 @@ export default function CleanJournal() {
   return (
     <div ref={sectionRef} className="min-h-screen bg-black text-white">
       {/* Main Container */}
-      <div className="flex flex-col lg:flex-row gap-8 p-8 lg:p-28">
+      <div className="flex flex-col lg:flex-row gap-8 p-8 lg:py-28 px-16">
         {/* Left Section - Featured Article */}
         <div className={`flex-1 bg-white text-black rounded-lg overflow-hidden transition-all duration-700 ${isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
           {/* Featured Image Area */}

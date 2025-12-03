@@ -33,7 +33,7 @@ export function ProductShowcase() {
   }, [])
 
   return (
-    <div ref={sectionRef} className="relative w-full min-h-screen bg-white overflow-hidden">
+    <div ref={sectionRef} className="relative w-full bg-white overflow-hidden">
       <style jsx>{`
         @keyframes text-reveal {
           from {
@@ -50,15 +50,15 @@ export function ProductShowcase() {
         }
       `}</style>
       {/* Two-column layout: left content, right image */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 min-h-screen">
+      <div className="grid grid-cols-1 lg:grid-cols-2">
         {/* Left Section - Product Details */}
-        <div className={`flex flex-col justify-between p-8 lg:p-16 transition-all duration-700 ${isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-3'}`}>
+        <div className={`flex flex-col justify-between p-8 lg:p-12 transition-all duration-700 ${isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-3'}`}>
           {/* Top decorative line */}
           <div className="absolute top-0 left-0 w-20 h-32 border-l-2 border-t-2 border-gray-900/20"></div>
 
           <div className="space-y-8">
             {/* Serum/Dropper Image */}
-            <div className="relative w-48 h-56 transition-transform duration-75 ease-out hover:scale-105 cursor-pointer" style={{ transform: `translateY(-${scrollY * 0.5}px)` }}>
+            <div className="relative w-48 h-56 transition-transform duration-75 ease-out hover:scale-105 cursor-pointer">
               <Image src="/1.jpg" alt="Serum dropper" fill className="object-cover" priority />
             </div>
 
@@ -87,7 +87,7 @@ export function ProductShowcase() {
 
             {/* Content */}
             <div className="max-w-sm">
-              <h2 className="text-4xl lg:text-5xl font-light text-gray-900 leading-tight mb-6">
+              <h2 className="text-4xl lg:text-5xl font-light text-gray-900 leading-tight">
                 <span className={`inline-block transition-all duration-700 ${isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'}`}>
                   {"Only proven ingredients,".split("").map((char, i) => (
                     <span
@@ -126,8 +126,8 @@ export function ProductShowcase() {
         </div>
 
         {/* Right Section - Full Image */}
-        <div className="relative w-full h-[65vh] sm:h-[75vh] lg:h-screen overflow-hidden">
-          <div className="absolute inset-0 transition-transform duration-75 ease-out" style={{ transform: `translateY(-${scrollY * 0.4}px)` }}>
+        <div className="relative w-full h-[65vh] sm:h-[75vh] lg:h-[80vh] overflow-hidden">
+          <div className="absolute inset-0 transition-transform duration-75 ease-out">
             <Image src="/offer.jpg" alt="Exciting offers" fill className="object-cover" priority />
           </div>
 
