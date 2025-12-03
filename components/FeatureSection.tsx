@@ -162,7 +162,7 @@ export default function FeatureSection() {
         "Truly clean with verified ingredients, free from over 1800 questionable substances.",
       icon: "/globe.svg",
       className:
-        "relative mx-auto mt-6 w-full max-w-[320px] bg-[#f5f5f5] rounded-xl shadow-md px-8 py-8 z-20 md:absolute md:left-[4%] md:top-[38%] md:h-[400px]",
+        "relative mx-auto mt-6 w-full max-w-[320px] bg-[#f5f5f5] rounded-xl  px-8 py-8 z-20 md:absolute md:left-[4%] md:top-[38%] md:h-[400px]",
       speed: 3,
     },
     {
@@ -171,7 +171,7 @@ export default function FeatureSection() {
         "No black boxes, nothing to hide, we disclose our full formulas.",
       icon: "/file.svg",
       className:
-        "relative mx-auto mt-6 w-full max-w-[320px] bg-[#f5f5f5] rounded-xl shadow-md px-8 py-8 z-20 md:absolute md:left-[23%] md:top-[6%] md:h-[400px]",
+        "relative mx-auto mt-6 w-full max-w-[320px] bg-[#f5f5f5] rounded-xl  px-8 py-8 z-20 md:absolute md:left-[23%] md:top-[6%] md:h-[400px]",
       speed: 1,
     },
     {
@@ -180,7 +180,7 @@ export default function FeatureSection() {
         "Packed with actives backed by dermal science to deliver results.",
       icon: "/window.svg",
       className:
-        "relative mx-auto mt-6 w-full max-w-[320px] bg-[#f5f5f5] rounded-xl shadow-md px-8 py-8 z-20 md:absolute md:left-[62%] md:bottom-[-20%] md:h-[400px]",
+        "relative mx-auto mt-6 w-full max-w-[320px] bg-[#f5f5f5] rounded-xl  px-8 py-8 z-20 md:absolute md:left-[62%] md:bottom-[-20%] md:h-[400px]",
       speed: 1,
     },
     {
