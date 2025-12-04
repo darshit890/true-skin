@@ -1,6 +1,6 @@
-"use client"
-import { useEffect, useRef, useState } from "react"
-import Image from "next/image"
+"use client";
+import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
 
 const VARNAYA_PRODUCTS = [
   {
@@ -15,7 +15,7 @@ const VARNAYA_PRODUCTS = [
     price: "₹899",
     image: "/p.png",
   },
-]
+];
 
 const scrollbarHideStyle = `
   .carousel-hide-scroll::-webkit-scrollbar {
@@ -25,78 +25,89 @@ const scrollbarHideStyle = `
     -ms-overflow-style: none;
     scrollbar-width: none;
   }
-`
+`;
 
 export default function VarnayaBlendsSection() {
-  const [isVisible, setIsVisible] = useState(false)
-  const carouselRef = useRef<HTMLDivElement>(null)
-  const sectionRef = useRef<HTMLDivElement>(null)
+  const [isVisible, setIsVisible] = useState(false);
+  const carouselRef = useRef<HTMLDivElement>(null);
+  const sectionRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          setIsVisible(true)
+          setIsVisible(true);
         }
       },
-      { threshold: 0.1 },
-    )
+      { threshold: 0.1 }
+    );
     if (sectionRef.current) {
-      observer.observe(sectionRef.current)
+      observer.observe(sectionRef.current);
     }
-    return () => observer.disconnect()
-  }, [])
+    return () => observer.disconnect();
+  }, []);
 
-  const isDragging = useRef(false)
-  const startX = useRef(0)
-  const scrollStart = useRef(0)
+  const isDragging = useRef(false);
+  const startX = useRef(0);
+  const scrollStart = useRef(0);
 
   const onPointerDown = (e: React.PointerEvent<HTMLDivElement>) => {
-    const el = carouselRef.current
-    if (!el) return
-    isDragging.current = true
-    startX.current = e.clientX
-    scrollStart.current = el.scrollLeft
-    el.setPointerCapture(e.pointerId)
-  }
+    const el = carouselRef.current;
+    if (!el) return;
+    isDragging.current = true;
+    startX.current = e.clientX;
+    scrollStart.current = el.scrollLeft;
+    el.setPointerCapture(e.pointerId);
+  };
 
   const onPointerMove = (e: React.PointerEvent<HTMLDivElement>) => {
-    if (!isDragging.current) return
-    const el = carouselRef.current
-    if (!el) return
-    const delta = e.clientX - startX.current
-    el.scrollLeft = scrollStart.current - delta
-  }
+    if (!isDragging.current) return;
+    const el = carouselRef.current;
+    if (!el) return;
+    const delta = e.clientX - startX.current;
+    el.scrollLeft = scrollStart.current - delta;
+  };
 
   const onPointerUp = (e: React.PointerEvent<HTMLDivElement>) => {
-    isDragging.current = false
+    isDragging.current = false;
     try {
-      carouselRef.current?.releasePointerCapture(e.pointerId)
+      carouselRef.current?.releasePointerCapture(e.pointerId);
     } catch {}
-  }
+  };
 
   const onPointerLeave = () => {
-    isDragging.current = false
-  }
+    isDragging.current = false;
+  };
 
   return (
-    <section ref={sectionRef} className="relative w-full bg-white overflow-hidden">
+    <section
+      ref={sectionRef}
+      className="relative w-full bg-white overflow-hidden"
+    >
       <style>{scrollbarHideStyle}</style>
 
       <div className="flex min-h-screen items-center justify-stretch overflow-hidden">
         {/* Left: Products section - 50% width */}
         <div
           className={`relative h-full w-full md:w-1/2 flex flex-col items-start justify-center px-6 md:px-8 lg:px-16 overflow-hidden transform transition-all duration-1000 delay-300 ${
-            isVisible ? "translate-x-0 opacity-100" : "-translate-x-20 opacity-0"
+            isVisible
+              ? "translate-x-0 opacity-100"
+              : "-translate-x-20 opacity-0"
           }`}
         >
           <div
             className={`mb-12 transform transition-all duration-1000 delay-500 ${
-              isVisible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
+              isVisible
+                ? "translate-y-0 opacity-100"
+                : "translate-y-8 opacity-0"
             }`}
           >
-            <p className="text-4xl font-semibold text-[#454545] md:text-5xl">Varnaya</p>
-            <p className="text-5xl font-light italic text-gray-600 md:text-6xl">Blends</p>
+            <p className="text-4xl font-semibold text-[#454545] md:text-5xl">
+              Varnaya
+            </p>
+            <p className="text-5xl font-light italic text-gray-600 md:text-6xl">
+              Blends
+            </p>
           </div>
 
           <div className="relative w-full mb-8 overflow-y-hidden">
@@ -112,10 +123,14 @@ export default function VarnayaBlendsSection() {
                 <div
                   key={product.id}
                   className={`shrink-0 w-[85%] sm:w-64 md:w-72 lg:w-100 snap-center rounded-3xl bg-[#D8CEC3] p-6 transition-transform hover:scale-105 relative transform duration-1000 ${
-                    isVisible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
+                    isVisible
+                      ? "translate-y-0 opacity-100"
+                      : "translate-y-8 opacity-0"
                   }`}
                   style={{
-                    transitionDelay: isVisible ? `${700 + index * 100}ms` : "0ms",
+                    transitionDelay: isVisible
+                      ? `${700 + index * 100}ms`
+                      : "0ms",
                   }}
                 >
                   <div className="flex h-[520px] md:h-[560px] flex-col justify-between">
@@ -125,8 +140,18 @@ export default function VarnayaBlendsSection() {
                         VARNAYA BLENDS
                       </span>
                       <div className="flex h-8 w-8 items-center justify-center rounded-full bg-white">
-                        <svg className="h-4 w-4 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 11v2M8 11v4a2 2 0 002 2h4a2 2 0 002-2v-4a2 2 0 00-2-2h-1V7a4 4 0 10-8 0v2h1a2 2 0 012 2z" />
+                        <svg
+                          className="h-4 w-4 text-gray-700"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M12 11v2M8 11v4a2 2 0 002 2h4a2 2 0 002-2v-4a2 2 0 00-2-2h-1V7a4 4 0 10-8 0v2h1a2 2 0 012 2z"
+                          />
                         </svg>
                       </div>
                     </div>
@@ -147,15 +172,15 @@ export default function VarnayaBlendsSection() {
                       <p className="text-sm md:text-base font-light tracking-wide text-gray-800 uppercase line-clamp-2">
                         {product.name}
                       </p>
-                      <p className="text-sm md:text-base font-light text-gray-800">{product.price}</p>
+                      <p className="text-sm md:text-base font-light text-gray-800">
+                        {product.price}
+                      </p>
                     </div>
                   </div>
                 </div>
               ))}
             </div>
           </div>
-
-          
 
           {/* Tagline */}
           <p className="mt-8 text-xs font-light tracking-widest text-gray-600 uppercase">
@@ -165,24 +190,30 @@ export default function VarnayaBlendsSection() {
 
         {/* Right: Full height image - 50% width */}
         <div
-          className={`relative min-h-[60vh] md:min-h-screen w-full md:w-1/2 overflow-hidden transform transition-all duration-1000 ${
-            isVisible ? "translate-x-0 opacity-100" : "translate-x-20 opacity-0"
-          }`}
+          className={`relative min-h-[60vh] md:min-h-screen w-full md:w-1/2 overflow-hidden transform transition-all duration-1000`}
         >
           <div
-            className="absolute inset-0 bg-cover bg-center bg-fixed"
+            className="absolute inset-0"
             style={{
-              backgroundImage: "url(/explore-1.jpg)",
-              backgroundPosition: `center`,
-              WebkitMaskImage: "radial-gradient(circle at center, black 90%, transparent 100%)",
-              maskImage: "radial-gradient(circle at center, black 90%, transparent 100%)",
+              backgroundImage: "url('/explore-1.jpg')",
+              backgroundSize: "cover",
+              objectFit: "contain",
+              maskSize: "contain",
+              WebkitMaskSize: "contain",
+              maskRepeat: "no-repeat",
+              WebkitMaskRepeat: "no-repeat",
+              backgroundPosition: "center",
+              backgroundAttachment: "fixed",
+              WebkitMaskImage:
+                "linear-gradient(to right, black 100%, transparent 100%)",
             }}
-            aria-hidden
+            aria-label="Pure Brilliance skincare product on face"
+            role="img"
           />
         </div>
       </div>
     </section>
-  )
+  );
 }
 
-export { VarnayaBlendsSection }
+export { VarnayaBlendsSection };

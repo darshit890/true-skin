@@ -49,8 +49,8 @@ export default function ConnectSection() {
         <div className="relative flex flex-col lg:flex-row items-stretch gap-8 lg:gap-x--12 mb-16 z-10">
           {/* Left small image - top left */}
           <div className={`hidden lg:flex items-start justify-start shrink-0 transition-all duration-700 ${isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{ transitionDelay: '300ms' }}>
-            <div className="relative w-48 h-48 overflow-hidden rounded-sm bg-stone-200 shadow-md transition-transform duration-75 ease-out top-[-250px]" style={{ transform: `translateY(${scrollY * 5}px)` }}>
-              <Image src="/c3.jpg" alt="Woman applying skincare" fill className="object-cover" priority />
+            <div className="relative w-[300px] h-[200px] overflow-hidden rounded-sm bg-stone-200 shadow-md transition-transform duration-75 ease-out top-[-250px]" style={{ transform: `translateY(${scrollY * 5}px)` }}>
+              <Image src="/connect-1.jpg" alt="Woman applying skincare" fill className="object-cover" priority />
             </div>
           </div>
 
@@ -63,8 +63,8 @@ export default function ConnectSection() {
 
           {/* Right small image - bottom right */}
           <div className={`hidden lg:flex items-end justify-end shrink-0 transition-all duration-700 ${isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{ transitionDelay: '300ms' }}>
-            <div className="relative w-48 h-48 overflow-hidden rounded-sm bg-stone-200 shadow-md transition-transform duration-75 ease-out md:bottom-[-250px]" style={{ transform: `translateY(-${scrollY * 3}px)` }}>
-              <Image src="/connect-1.jpg" alt="Skincare details" fill className="object-cover" />
+            <div className="relative w-[300px] h-[400px] overflow-hidden rounded-sm bg-stone-200 shadow-md transition-transform duration-75 ease-out md:bottom-[-250px]" style={{ transform: `translateY(-${scrollY * 3}px)` }}>
+              <Image src="/c3.jpg" alt="Skincare details" fill className="object-cover" />
             </div>
           </div>
         </div>

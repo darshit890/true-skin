@@ -128,7 +128,7 @@ export default function ProductSection() {
               backgroundSize: "cover",
               backgroundPosition: "center",
               backgroundAttachment: "fixed",
-              WebkitMaskImage: "linear-gradient(to right, black 92%, transparent 100%)",
+              WebkitMaskImage: "linear-gradient(to right, black 100%, transparent 100%)",
             }}
             aria-label="Pure Brilliance skincare product on face"
             role="img"
