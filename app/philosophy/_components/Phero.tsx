@@ -1,7 +1,8 @@
-'use client'
+"use client";
 
-import { ChevronDown, Menu } from "lucide-react";
+import { Menu } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 import { useState } from "react";
 
 const Phero = () => {
@@ -10,13 +11,15 @@ const Phero = () => {
     <div className="relative w-full h-screen overflow-visible">
       <header className="absolute top-0 left-0 right-0 flex items-center justify-between px-16 py-6 z-20">
         {/* Logo */}
-        <div className="text-[#454545] text-2xl font-light tracking-wide">
-          true<span className="font-bold">Kind</span>.
+        <div className="text-white text-2xl font-light tracking-wide">
+          <Link href="/">
+            true<span className="font-bold">Kind</span>.
+          </Link>
         </div>
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center gap-8 text-[#454545] text-sm font-medium ">
-          <a href="#shop" className="px-4 py-2 hover:opacity-70 transition">
+          <a href="/shop" className="px-4 py-2 hover:opacity-70 transition">
             SHOP
           </a>
           <a
@@ -25,10 +28,7 @@ const Phero = () => {
           >
             PHILOSOPHY
           </a>
-          <a href="#gallery" className="px-4 py-2 hover:opacity-70 transition">
-            GALLERY
-          </a>
-          <a href="#journal" className="px-4 py-2 hover:opacity-70 transition">
+          <a href="/journal" className="px-4 py-2 hover:opacity-70 transition">
             JOURNAL
           </a>
         </nav>
@@ -53,12 +53,13 @@ const Phero = () => {
               <span className="font-extrabold">True</span>
             </h1>
           </div>
-        {/* Bottom-left paragraph like the reference image */}
-        <div className="absolute left-0 bottom-6 md:bottom-8 z-10">
-          <p className="text-sm text-[#666] leading-relaxed max-w-xs">
-            Our simple philosophy in all that we do. We are passionate about skin care, we are truekind.
-          </p>
-        </div>
+          {/* Bottom-left paragraph like the reference image */}
+          <div className="absolute left-0 bottom-6 md:bottom-8 z-10">
+            <p className="text-sm text-[#666] leading-relaxed max-w-xs">
+              Our simple philosophy in all that we do. We are passionate about
+              skin care, we are truekind.
+            </p>
+          </div>
           {/* Center Image - Diagonal positioned */}
           <div className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 rotate-115">
             <div className="relative w-[360px] h-[360px] sm:w-[420px] sm:h-[420px] md:w-[560px] md:h-[560px] xl:w-[1400px] xl:h-[1000px]">
@@ -81,7 +82,6 @@ const Phero = () => {
             </h2>
           </div>
         </div>
-        
       </div>
     </div>
   );

@@ -193,14 +193,20 @@ export function Footer() {
 
           {/* Footer Links */}
           <div className="flex gap-6 text-xs text-gray-600">
-            <a href="#" className="hover:text-gray-900 transition-colors">
-              Disclaimer
+            <a href="/refund-policy" className="hover:text-gray-900 transition-colors">
+              Refund Policy
+            </a>
+            <a href="/privacy-policy" className="hover:text-gray-900 transition-colors">
+              Privacy Policy
+            </a>
+            <a href="/terms-of-service" className="hover:text-gray-900 transition-colors">
+              Terms of Service
+            </a>
+            <a href="/shipping-policy" className="hover:text-gray-900 transition-colors">
+              Shipping Policy
             </a>
             <a href="#" className="hover:text-gray-900 transition-colors">
-              Credits
-            </a>
-            <a href="#" className="hover:text-gray-900 transition-colors">
-              Website By: Abhishek & Rekha
+              Website By: Framonics
             </a>
           </div>
         </div>

@@ -1,5 +1,6 @@
 "use client"
 import { Menu, ArrowRight } from "lucide-react"
+import Link from "next/link"
 import { useEffect, useState } from "react"
 
 export default function Hero() {
@@ -34,21 +35,20 @@ export default function Hero() {
       <header className="absolute top-0 left-0 right-0 flex items-center justify-between px-16 py-6 z-20">
         {/* Logo */}
         <div className="text-white text-2xl font-light tracking-wide">
+          <Link href="/">
           true<span className="font-bold">Kind</span>.
+          </Link>
         </div>
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center gap-8 text-white text-sm font-medium ">
-          <a href="#shop" className="px-4 py-2 hover:opacity-70 transition">
+          <a href="/shop" className="px-4 py-2 hover:opacity-70 transition">
             SHOP
           </a>
           <a href="/philosophy" className="px-4 py-2 hover:opacity-70 transition">
             PHILOSOPHY
           </a>
-          <a href="#gallery" className="px-4 py-2 hover:opacity-70 transition">
-            GALLERY
-          </a>
-          <a href="#journal" className="px-4 py-2 hover:opacity-70 transition">
+          <a href="/journal" className="px-4 py-2 hover:opacity-70 transition">
             JOURNAL
           </a>
         </nav>
