@@ -42,7 +42,7 @@ export default function Hero() {
           <a href="#shop" className="px-4 py-2 hover:opacity-70 transition">
             SHOP
           </a>
-          <a href="#philosophy" className="px-4 py-2 hover:opacity-70 transition">
+          <a href="/philosophy" className="px-4 py-2 hover:opacity-70 transition">
             PHILOSOPHY
           </a>
           <a href="#gallery" className="px-4 py-2 hover:opacity-70 transition">
