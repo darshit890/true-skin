@@ -136,13 +136,19 @@ export default function FeatureSection() {
         <div className="relative mt-12 md:mt-16 ">
           <svg
             viewBox="0 0 300 300"
-            className="absolute -right-6 md:right-6 -top-10 md:-top-6 w-48 md:w-64 h-auto text-gray-400 "
+            className="absolute -right-6 md:right-100 -top-10 md:-top-6 w-48 md:w-100 h-auto text-gray-800 transform rotate-12 md:rotate-80"
           >
+            <defs>
+              <marker id="arrowhead" markerWidth="8" markerHeight="8" refX="5" refY="4" orient="auto">
+                <path d="M0,0 L8,4 L0,8 Z" fill="currentColor" />
+              </marker>
+            </defs>
             <path
-              d="M20 160c80-100 200-80 240 0"
+              d="M20 160 C 80 60 220 80 260 160"
               fill="none"
               stroke="currentColor"
-              strokeWidth="1.5"
+              strokeWidth="2"
+              markerEnd="url(#arrowhead)"
             />
           </svg>
 

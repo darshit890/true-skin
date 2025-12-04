@@ -15,18 +15,6 @@ const VARNAYA_PRODUCTS = [
     price: "₹899",
     image: "/p.png",
   },
-  {
-    id: 3,
-    name: "TURMERIC BRIGHTENING FACE MASK",
-    price: "₹899",
-    image: "/p.png",
-  },
-  {
-    id: 4,
-    name: "AYURVEDIC CLEANSING OIL",
-    price: "₹899",
-    image: "/p.png",
-  },
 ]
 
 const scrollbarHideStyle = `
@@ -107,7 +95,7 @@ export default function VarnayaBlendsSection() {
               isVisible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
             }`}
           >
-            <p className="text-4xl font-light text-gray-800 md:text-5xl">Varnaya</p>
+            <p className="text-4xl font-semibold text-[#454545] md:text-5xl">Varnaya</p>
             <p className="text-5xl font-light italic text-gray-600 md:text-6xl">Blends</p>
           </div>
 
@@ -123,7 +111,7 @@ export default function VarnayaBlendsSection() {
               {VARNAYA_PRODUCTS.map((product, index) => (
                 <div
                   key={product.id}
-                  className={`shrink-0 w-[85%] sm:w-64 md:w-72 lg:w-80 snap-center rounded-3xl bg-[#D8CEC3] p-6 transition-transform hover:scale-105 relative transform duration-1000 ${
+                  className={`shrink-0 w-[85%] sm:w-64 md:w-72 lg:w-100 snap-center rounded-3xl bg-[#D8CEC3] p-6 transition-transform hover:scale-105 relative transform duration-1000 ${
                     isVisible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
                   }`}
                   style={{
@@ -133,7 +121,7 @@ export default function VarnayaBlendsSection() {
                   <div className="flex h-[520px] md:h-[560px] flex-col justify-between">
                     {/* Label & Bag Icon */}
                     <div className="flex w-full items-center justify-between">
-                      <span className="inline-block rounded-full bg-white px-4 py-2 text-xs font-light tracking-wide text-gray-700">
+                      <span className="inline-block rounded-full bg-white px-4 py-2 text-xs font-light tracking-wide text-[#454545]">
                         VARNAYA BLENDS
                       </span>
                       <div className="flex h-8 w-8 items-center justify-center rounded-full bg-white">

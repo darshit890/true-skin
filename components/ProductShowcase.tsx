@@ -86,8 +86,8 @@ export function ProductShowcase() {
             </div>
 
             {/* Content */}
-            <div className="max-w-sm">
-              <h2 className="text-4xl lg:text-5xl font-light text-gray-900 leading-tight">
+            <div className="max-w-md">
+              <h2 className="text-4xl lg:text-4xl font-semibold text-[#454545] leading-tight">
                 <span className={`inline-block transition-all duration-700 ${isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'}`}>
                   {"Only proven ingredients,".split("").map((char, i) => (
                     <span

@@ -36,8 +36,8 @@ export default function ConnectSection() {
     <section ref={sectionRef} className="w-full bg-white py-16 lg:py-24 overflow-hidden">
       <div className="mx-auto  px-4 sm:px-6 lg:px-16">
         {/* Main heading */}
-        <div className={`mb-16 text-center lg:mb-20 transition-all duration-700 ${isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
-          <h2 className="text-5xl font-bold tracking-tight text-gray-900 sm:text-6xl lg:text-7xl">
+        <div className={`relative z-50 mb-16 text-center lg:mb-20 transition-all duration-700 ${isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
+          <h2 className="text-5xl font-bold tracking-tight text-[#454545] sm:text-6xl lg:text-7xl lg:top-28 z-50 relative">
             <span className={`inline-block transition-all ${isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'}`}>CONNECT</span>
             <br />
             <span className={`inline-block transition-all delay-150 ${isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'}`}>WITH</span>
@@ -46,24 +46,24 @@ export default function ConnectSection() {
         </div>
 
         {/* Main content with diagonal image layout */}
-        <div className="relative flex flex-col lg:flex-row items-stretch gap-8 lg:gap-x--12 mb-16">
+        <div className="relative flex flex-col lg:flex-row items-stretch gap-8 lg:gap-x--12 mb-16 z-10">
           {/* Left small image - top left */}
-          <div className={`hidden lg:flex items-start justify-start shrink-0 transition-all duration-700 ${isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{ transitionDelay: '150ms' }}>
-            <div className="relative w-48 h-48 overflow-hidden rounded-sm bg-stone-200 shadow-md transition-transform duration-75 ease-out" style={{ transform: `translateY(-${scrollY * 1}px)` }}>
+          <div className={`hidden lg:flex items-start justify-start shrink-0 transition-all duration-700 ${isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{ transitionDelay: '300ms' }}>
+            <div className="relative w-48 h-48 overflow-hidden rounded-sm bg-stone-200 shadow-md transition-transform duration-75 ease-out top-[-250px]" style={{ transform: `translateY(${scrollY * 5}px)` }}>
               <Image src="/c3.jpg" alt="Woman applying skincare" fill className="object-cover" priority />
             </div>
           </div>
 
-          {/* Center main image - takes majority of space */}
+          {/* Center main image - takes majority of space with overlay heading */}
           <div className="flex-1">
-            <div className="relative w-full aspect-4/3 overflow-hidden rounded-sm bg-linear-to-br from-stone-100 via-orange-50 to-rose-100 shadow-lg transition-transform duration-75 ease-out" >
+            <div className="relative w-full aspect-4/3 overflow-hidden rounded-sm bg-linear-to-br from-stone-100 via-orange-50 to-rose-100 shadow-lg transition-transform duration-75 ease-out z-0">
               <Image src="/connect.jpg" alt="Woman skincare profile" fill className="object-cover" priority />
             </div>
           </div>
 
           {/* Right small image - bottom right */}
           <div className={`hidden lg:flex items-end justify-end shrink-0 transition-all duration-700 ${isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{ transitionDelay: '300ms' }}>
-            <div className="relative w-48 h-48 overflow-hidden rounded-sm bg-stone-200 shadow-md transition-transform duration-75 ease-out" style={{ transform: `translateY(${scrollY * 1}px)` }}>
+            <div className="relative w-48 h-48 overflow-hidden rounded-sm bg-stone-200 shadow-md transition-transform duration-75 ease-out md:bottom-[-250px]" style={{ transform: `translateY(-${scrollY * 3}px)` }}>
               <Image src="/connect-1.jpg" alt="Skincare details" fill className="object-cover" />
             </div>
           </div>
