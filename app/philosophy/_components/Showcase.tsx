@@ -96,14 +96,12 @@ export function IngredientShowcase() {
           <div className="grid grid-cols-1 lg:grid-cols-2 items-stretch gap-y-10">
             <div
               ref={containerRef}
-              className="flex flex-col gap-y-4 relative"
-              style={{ height: "400px" }}
+              className="flex flex-col gap-y-4 relative h-[300px] md:h-[360px] lg:h-[400px]"
             >
               {ingredients.slice(0, 5).map((ingredient) => (
                 <div
                   key={ingredient.id}
-                  className="ingredient-card bg-white text-gray-900 p-6 absolute"
-                  style={{ width: "350px", height: "400px" }}
+                  className="ingredient-card bg-white text-gray-900 p-6 absolute w-[240px] h-[300px] md:w-[300px] md:h-[360px] lg:w-[350px] lg:h-[400px]"
                 >
                   <div className="flex items-start gap-3 mb-8">
                     <div className="text-2xl">{ingredient.icon}</div>
@@ -117,16 +115,14 @@ export function IngredientShowcase() {
 
             {/* Middle Column - Large Featured Card */}
             {/* Middle Column - Large Featured Card */}
-            <div
-              className="flex flex-col gap-4 relative"
-              style={{ height: "400px" }}
-            >
+          <div
+            className="flex flex-col gap-4 relative h-[300px] md:h-[360px] lg:h-[400px]"
+          >
               {ingredients.slice(0, 4).map((ingredient) => (
-                <div
-                  key={`middle-${ingredient.id}`}
-                  className="ingredient-card bg-white text-gray-900 p-8 flex flex-col justify-between absolute"
-                  style={{ width: "350px", height: "400px" }}
-                >
+              <div
+                key={`middle-${ingredient.id}`}
+                className="ingredient-card bg-white text-gray-900 p-8 flex flex-col justify-between absolute w-[240px] h-[300px] md:w-[300px] md:h-[360px] lg:w-[350px] lg:h-[400px]"
+              >
                   <div className="flex items-start gap-3 mb-12">
                     <div className="text-3xl">{ingredient.icon}</div>
                   </div>
@@ -160,8 +156,8 @@ export function IngredientShowcase() {
             </div>
 
             {/* Stats Section */}
-            <div className="flex flex-col items-center justify-between gap-y-52">
-              <div className="w-48 h-px bg-gray-500 transform rotate-45 mt-25"></div>
+            <div className="flex flex-col items-center justify-between gap-y-24 md:gap-y-40 lg:gap-y-52">
+              <div className="w-32 md:w-40 lg:w-48 h-px bg-gray-500 transform rotate-45 mt-25"></div>
               <div>
                 <p className="text-6xl font-bold text-center">1800+</p>
                 <p className="text-gray-300 mt-2 text-center">

@@ -4,7 +4,7 @@ const TPackaging = () => {
   return (
     <div className="w-full relative min-h-screen">
       {/* Background Image Section */}
-      <div className="w-full h-64 md:h-80 lg:h-[800px]">
+      <div className="w-full h-64 md:h-80 lg:h-[1080px]">
         <div
           className="w-full h-full bg-cover bg-center bg-fixed"
           style={{
@@ -23,7 +23,7 @@ const TPackaging = () => {
         </div>
 
         {/* Leaf icon and content grid */}
-        <div className="flex gap-x-200 items-center">
+        <div className="flex flex-col lg:flex-row items-start lg:items-center gap-8 lg:gap-x-200">
           {/* Leaf icon */}
           <div className="shrink-0">
             <div className="w-12 h-12 rounded-full bg-[#454545] text-white flex items-center justify-center">
@@ -47,7 +47,7 @@ const TPackaging = () => {
           </div>
 
           {/* Two column text content */}
-          <div className="flex-1 grid grid-cols-1 md:grid-cols-2 gap-16">
+          <div className="flex-1 grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16">
             {/* Left column */}
             <div>
               <p className="text-sm leading-relaxed text-muted-foreground">

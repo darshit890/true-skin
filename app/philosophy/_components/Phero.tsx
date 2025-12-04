@@ -44,8 +44,8 @@ const Phero = () => {
         </div>
       </header>
 
-      <div className="w-full min-h-screen flex items-center justify-center px-4 md:px-16 pt-32 md:pt-20 pb-12 flex-col">
-        <div className="w-full  relative h-[600px] md:h-[700px]">
+      <div className="w-full min-h-[85vh] md:min-h-screen flex items-center justify-center px-4 md:px-16 pt-24 md:pt-20 pb-8 md:pb-12 flex-col">
+        <div className="w-full  relative h-[520px] md:h-[700px]">
           {/* Left Text - "Be True" */}
           <div className="absolute left-0 top-0 md:top-12 z-10">
             <h1 className="font-serif italic text-5xl md:text-9xl text-[#454545] leading-tight text-balance whitespace-nowrap">
@@ -61,13 +61,13 @@ const Phero = () => {
         </div>
           {/* Center Image - Diagonal positioned */}
           <div className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 rotate-115">
-            <div className="relative w-96 h-96 md:w-[1400px] md:h-[620px]">
+            <div className="relative w-[360px] h-[360px] sm:w-[420px] sm:h-[420px] md:w-[560px] md:h-[560px] xl:w-[1400px] xl:h-[1000px]">
               <Image
                 src="/philosophy-m.png"
                 alt="Philosophy - Be True Be Kind"
                 fill
                 className="object-contain object-center"
-                sizes="(min-width: 768px) 1400px, 384px"
+                sizes="(min-width: 1280px) 1400px, (min-width: 768px) 560px, 420px"
                 priority
               />
             </div>

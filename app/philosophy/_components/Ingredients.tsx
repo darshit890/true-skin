@@ -1,9 +1,9 @@
 export function IngredientsSection() {
   return (
-    <section className="w-full bg-background py-24 px-16 min-h-screen flex">
+    <section className="w-full bg-background py-16 md:py-24 px-6 md:px-16 min-h-[80vh] md:min-h-screen flex">
       <div className="flex flex-col justify-between">
         {/* Main heading area */}
-        <div className="mb-32">
+        <div className="mb-12 md:mb-32">
           <h1 className="text-5xl md:text-6xl font-semibold leading-tight text-[#454545] mb-12">
             Clean Ingredients,
             <br />
@@ -12,7 +12,7 @@ export function IngredientsSection() {
         </div>
 
         {/* Leaf icon and content grid */}
-        <div className="flex gap-x-200 items-center">
+        <div className="flex flex-col lg:flex-row items-start lg:items-center gap-8 lg:gap-x-200">
           {/* Leaf icon */}
           <div className="shrink-0">
             <div className="w-12 h-12 rounded-full bg-[#454545] text-white flex items-center justify-center">
@@ -36,7 +36,7 @@ export function IngredientsSection() {
           </div>
 
           {/* Two column text content */}
-          <div className="flex-1 grid grid-cols-1 md:grid-cols-2 gap-16">
+          <div className="flex-1 grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16">
             {/* Left column */}
             <div>
               <p className="text-sm leading-relaxed text-muted-foreground">

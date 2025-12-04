@@ -5,9 +5,9 @@ export default function PInfo() {
   return (
     <main className="w-full min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="flex items-stretch min-h-screen">
+      <section className="flex flex-col md:flex-row items-stretch min-h-screen md:min-h-[120vh]">
         {/* Left Content */}
-        <div className="w-1/2 bg-linear-to-br from-amber-50 via-orange-50 to-stone-100 flex flex-col justify-between p-12 md:p-16">
+        <div className="w-full md:w-1/2 bg-linear-to-br from-amber-50 via-orange-50 to-stone-100 flex flex-col justify-between p-8 md:p-16">
           <div className="flex justify-center pt-8">
             <Star />
           </div>
@@ -21,7 +21,7 @@ export default function PInfo() {
             </h1>
 
             <div>
-              <div className="flex flex-col gap-6 mt-20">
+              <div className="flex flex-col gap-6 mt-10 md:mt-20">
                 <Image
                   src="/pi.jpg"
                   alt="Skincare product showcase"
@@ -42,7 +42,7 @@ export default function PInfo() {
         </div>
 
         {/* Right Image */}
-        <div className="w-1/2 relative overflow-hidden">
+        <div className="w-full md:w-1/2 relative overflow-hidden h-[320px] sm:h-[420px] md:h-auto">
           <Image src="/explore-1.jpg" alt="Dewy skin beauty showcase" fill className="object-cover" priority />
         </div>
       </section>

@@ -37,18 +37,18 @@ export default function FeaturesShowcase() {
 
   return (
     <section className="w-full bg-white py-16">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-nowrap items-start justify-between gap-6 overflow-x-auto pb-4">
+      <div className="px-4 sm:px-6 lg:px-16">
+        <div className="flex flex-wrap md:flex-wrap lg:flex-nowrap items-start justify-center md:justify-around lg:justify-between gap-4 md:gap-6 overflow-x-auto lg:overflow-visible pb-4">
           {features.map((feature) => (
-            <div key={feature.id} className="flex flex-1 min-w-max flex-col items-center gap-4">
-              <div className="flex h-32 w-32 items-center justify-center rounded-full bg-gray-100">
+            <div key={feature.id} className="flex flex-1 lg:min-w-max min-w-[140px] md:min-w-[160px] flex-col items-center gap-3 md:gap-4">
+              <div className="flex h-24 w-24 md:h-28 md:w-28 lg:h-32 lg:w-32 items-center justify-center rounded-full bg-gray-100">
                 {feature.isLogo ? (
-                  <span className="text-2xl font-italic text-gray-800">PETA</span>
+                  <span className="text-xl md:text-2xl font-italic text-gray-800">PETA</span>
                 ) : feature.icon ? (
-                  <feature.icon className="h-12 w-12 text-gray-700" strokeWidth={1.5} />
+                  <feature.icon className="h-10 w-10 md:h-11 md:w-11 lg:h-12 lg:w-12 text-gray-700" strokeWidth={1.5} />
                 ) : null}
               </div>
-              <p className="text-center text-sm font-medium text-gray-700">{feature.title}</p>
+              <p className="text-center text-xs md:text-sm font-medium text-gray-700">{feature.title}</p>
             </div>
           ))}
         </div>
